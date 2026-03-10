@@ -1,0 +1,277 @@
+/* Page setup */
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    color: #10384a;
+    overflow: hidden;
+}
+
+/* Sky + sunlight */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+
+    background:
+        radial-gradient(circle at 50% 15%, rgba(255, 255, 200, 0.9) 0%, rgba(255, 255, 200, 0.3) 20%, transparent 40%),
+        linear-gradient(#4ec5ff, #0096c7);
+
+    z-index: -4;
+}
+
+/* Moving ocean waves */
+body::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 45%;
+
+    background: repeating-radial-gradient(circle at 50% 0%,
+            rgba(255, 255, 255, 0.35) 0px,
+            rgba(255, 255, 255, 0.2) 40px,
+            rgba(255, 255, 255, 0.05) 80px);
+
+    animation: waterMove 14s linear infinite;
+
+    z-index: -3;
+}
+
+@keyframes waterMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-400px);
+    }
+}
+
+/* Ocean sparkle layer */
+.sparkle {
+    position: fixed;
+    width: 100%;
+    height: 40%;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.sparkle span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 6s infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Main container */
+.paradise_container {
+    margin-top: 60px;
+    padding: 40px;
+}
+
+/* Title */
+h1 {
+    font-size: 56px;
+    color: #f7b500;
+    text-shadow: 0 0 20px rgba(255, 220, 120, 0.9);
+}
+
+/* Paradise image */
+.paradise_image {
+    width: 600px;
+    max-width: 90%;
+    border-radius: 18px;
+    border: 5px solid #ffffff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    margin: 25px 0;
+}
+
+/* Ending text */
+h3 {
+    font-size: 22px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* Cinematic THE END text */
+.the_end {
+    font-size: 70px;
+    margin-top: 40px;
+    color: white;
+    letter-spacing: 8px;
+    opacity: 0;
+    animation: fadeEnd 6s forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeEnd {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Seagulls */
+.seagull {
+    position: fixed;
+    top: 120px;
+    left: -200px;
+    font-size: 40px;
+    animation: flyAcross 25s linear infinite;
+}
+
+@keyframes flyAcross {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(120vw);
+    }
+}
+
+/* Palm leaves drifting */
+.leaf {
+    position: fixed;
+    top: -50px;
+    font-size: 30px;
+    animation: leafFall 18s linear infinite;
+}
+
+@keyframes leafFall {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(80px) rotate(120deg);
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(-80px) rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media(max-width:800px) {
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+}
+/* Base page */
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    color: #0d3b4c;
+    overflow: hidden;
+}
+
+/* Sky + sunlight */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(circle at 50% 20%, #fff3a6 0%, transparent 35%),
+        linear-gradient(#87e0ff, #3bb6e6, #1a9bd6);
+
+    z-index: -3;
+}
+
+/* Animated ocean water */
+body::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 45%;
+
+    background: repeating-radial-gradient(circle at 50% 0%,
+            rgba(255, 255, 255, 0.35) 0px,
+            rgba(255, 255, 255, 0.15) 40px,
+            rgba(255, 255, 255, 0.05) 80px);
+
+    animation: oceanMove 10s linear infinite;
+
+    z-index: -2;
+}
+
+/* Wave movement */
+@keyframes oceanMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-300px);
+    }
+}
+
+/* Image styling */
+img {
+    margin-top: 70px;
+    width: 600px;
+    max-width: 90%;
+    border-radius: 18px;
+    border: 5px solid white;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Title text */
+h3 {
+    font-size: 30px;
+    margin-top: 25px;
+    color: #f7b500;
+    text-shadow: 0 0 10px rgba(255, 220, 120, 0.8);
+}
+
+/* Subtle floating effect */
+img:hover {
+    transform: scale(1.03);
+    transition: 0.3s ease;
+}
