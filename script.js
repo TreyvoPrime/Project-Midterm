@@ -20,7 +20,32 @@ const scenes = {
     napoleonic_code: {
         title: "Napoleonic Code",
         image: "./images/napoleonic_codes.jpg",
-        text: "You reform the French legal system.",
+        text: "You reform the French legal system. Courts, and churches have been reformed to be more civil. Your citizens are already looking upwards to you! will you visit a courthouse to see a impending courtcase, or visit a church⛪.",
+        decisions: [{text: "Visit a courthouse", next: "court"},
+             {text:"Visit a church", next: "church"}
+        ]
+    },
+    court: {
+        title: "Courthouse",
+        image: "./images/court.jpg",
+        text: "The napoleonic codes have been passesd and you're at a courthouse viewing a courtcase! The judge rules in favor of conviction for the defendent. The defendent is sentenced to death. What do you do?",
+        decisions: [{text: "Pardon the convicted", next: "pardon_convicted"},
+             {text:"Send them to jail", next: "church"}
+        ]
+    },
+    pardon_convicted: {
+        title: "A New friend",
+        image: "./images/napoleon_friendly.jpg",
+        text: "A new friend has been made! he's a cool guy should you ask him to join the military or let him go back to normal life?🪖",
+        decisions: [{text: "recruit them into the military🪖", next: "soilder_recruitment"},
+             {text:"Leave them to go back into normal life🧑", next: "assasination"}
+        ]
+    },
+    assasination: {
+        title: "Assasination",
+        image: "./images//dark_forest.jpg",
+        text: "Evil has been done! You have been assasinated by your so called friend! You have failed your people! Your legacy is now ending in a tragic manner!",
+
         decisions: []
     },
     soilder_recruitment: {
@@ -79,7 +104,7 @@ const scenes = {
     faroe_islands: {
         title: "The Faroe Islands",
         image:"./images/faroe_islands.webp",
-        text: "Your search for British ships to destroy has been deeply unsuccessful. The endless hunt across the sea has left you exhausted. In the distance, you finally spot a chain of islands. You decide to take refuge there and retire as emperor. Perhaps conquest was never meant for you.” ",
+        text: "Your search for British ships to destroy has been deeply unsuccessful. The endless hunt across the sea has left you exhausted. In the distance, you finally spot a chain of islands. You decide to take refuge there and retire as emperor. Perhaps conquest was never meant for you. ",
         decisions:  [ ] 
     },
     convoy_raid: {
@@ -92,9 +117,51 @@ const scenes = {
     meatball_scene: {
         title: "Meatballs!",
         image:"./images/meatball_scene.jpg",
-        text: "you've always had a appetite for meatballs🤤 you couldn't resist so you dig in!” ",
-        decisions:  [{text: "Return to port with all supplies", next: "prussian_declaration"},
-            {text: "Eat the meatballs", next: "meatball_scene"}]
+        text: "you've always had a appetite for meatballs🤤 you couldn't resist so you dig in! ",
+        decisions:  [{text: "Return to port with all supplies", next: "prussian_declaration"}]
+    },
+    prussian_declaration: {
+        title: "Prussian Declaration of war!",
+        image:"./images/prussian_declaration.jpg",
+        text: "After recent victorious conflicts with the british, European powers rally around each other to defeat you. Prussia offical declares war on your empire!.💥 ",
+        decisions:  [{text: "Attempt diplomacy", next: "battle_gena"},
+            {text: "Participate in the battle of Gena", next: "battle_gena"}
+
+        ]
+    },
+    battle_gena: {
+        title: "Battle of Gena!⚔️",
+        image:"./images/battle_gena_victory.jpg",
+        text: "After your leadership and, a long bloody battle, you emerge victorious! The battle of Gena is a turning point in the war, and the Prussian army surrenders due to their devastating defeat!🏳️ ",
+        decisions:  [{text: "Seize Prussian Shipyards and ports!", next: "prussian_ports"},
+
+        ]
+    },
+    prussian_diplomacy: {
+        title: "Prussian diplomatic attemtps!",
+        image:"./images/prussian_declaration.jpg",
+        text: "After recent victorious conflicts with the british, European powers rally around each other to defeat you. Prussia offical declares war on your empire!.💥” ",
+        decisions:  [{text: "Attempt diplomacy", next: "prussian_declaration"},
+            {text: "Participate in the battle of Gena", next: "battle_gena"}
+
+        ]
+    },
+    prussian_ports: {
+        title: "The Prussian port!",
+        image:"./images/prussian_ports.jpg",
+        text: "You are now at the Prussian port, the port seaboard is bueatiful you enjoy your time there. You must make a decision either to build up your fleet or to rival the Royal navy or return back to France and invest into your economy🏭. ",
+
+        decisions:  [{text: "Head back to France and invest into Economy🏭", next: "economic_investment"},
+            {text: "Build a massive navy that rivales the British🏁", next: "naval_dominance"}
+
+        ]
+    },
+    naval_dominance: {
+        title: "Naval Superiority!",
+        image:"./images/prussian_ports.jpg",
+        text: "You are now ready to set sail with your newly built impressive navy. The british has nothing on you! set sail and crush anything that stands in your way. ",
+
+        decisions:  []
     },
 }
 
@@ -104,7 +171,7 @@ const image = document.getElementById("images")
 const second_image = document.getElementById("second_image")
 const button1 = document.getElementById("decision_one")
 const button2 = document.getElementById("decision_two")
-
+const button3 = document.getElementById("restart_button")
 let button1Next = null
 let button2Next = null
 
@@ -165,5 +232,32 @@ function loadScene(sceneName){
     
         button2.style.display = "none"
     }
+    if(sceneName === "naval_dominance"){
+
+        button1.style.display = "inline-block"
+        button1.innerText = "Achieve Naval Supremacy⚓"
+    
+        button1.onclick = () => {
+            window.location.href = "./Endings/naval_supremacy.html"
+        }
+    
+        button2.style.display = "none"
+    }
+    if(sceneName === "assasination"){
+
+        button1.style.display = "inline-block"
+        button1.innerText = "Accept your fate, and rest in silence🩸"
+    
+        button1.onclick = () => {
+            window.location.href = "./Endings/assasination.html"
+        }
+    
+        button2.style.display = "none"
+    }
 }
+
 loadScene("coronation")
+function reset_story() {
+    loadScene("coronation")
+}
+button3.addEventListener("click", reset_story)

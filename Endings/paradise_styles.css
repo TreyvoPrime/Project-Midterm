@@ -4,7 +4,7 @@ body {
     font-family: Georgia, "Times New Roman", serif;
     text-align: center;
     color: #10384a;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Sky + sunlight */
@@ -13,8 +13,8 @@ body::before {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200%;
-    height: 200%;
+    width: 100%;
+    height: 100%;
 
     background:
         radial-gradient(circle at 50% 15%, rgba(255, 255, 200, 0.9) 0%, rgba(255, 255, 200, 0.3) 20%, transparent 40%),
@@ -29,7 +29,7 @@ body::after {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 200%;
+    width: 100%;
     height: 45%;
 
     background: repeating-radial-gradient(circle at 50% 0%,
@@ -48,7 +48,7 @@ body::after {
     }
 
     to {
-        transform: translateX(-400px);
+        transform: translateX(-300px);
     }
 }
 
@@ -115,7 +115,7 @@ h3 {
     font-size: 22px;
     line-height: 1.6;
     max-width: 700px;
-    margin: auto;
+    margin: 20px auto;
     background: rgba(255, 255, 255, 0.7);
     padding: 20px;
     border-radius: 12px;
@@ -185,9 +185,14 @@ h3 {
     }
 }
 
-/* Responsive */
-@media(max-width:800px) {
+/* Image hover */
+img:hover {
+    transform: scale(1.03);
+    transition: 0.3s ease;
+}
 
+/* Responsive */
+@media (max-width:800px) {
     h1 {
         font-size: 40px;
     }
@@ -195,83 +200,4 @@ h3 {
     h3 {
         font-size: 18px;
     }
-
-}
-/* Base page */
-body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    text-align: center;
-    color: #0d3b4c;
-    overflow: hidden;
-}
-
-/* Sky + sunlight */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background:
-        radial-gradient(circle at 50% 20%, #fff3a6 0%, transparent 35%),
-        linear-gradient(#87e0ff, #3bb6e6, #1a9bd6);
-
-    z-index: -3;
-}
-
-/* Animated ocean water */
-body::after {
-    content: "";
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 45%;
-
-    background: repeating-radial-gradient(circle at 50% 0%,
-            rgba(255, 255, 255, 0.35) 0px,
-            rgba(255, 255, 255, 0.15) 40px,
-            rgba(255, 255, 255, 0.05) 80px);
-
-    animation: oceanMove 10s linear infinite;
-
-    z-index: -2;
-}
-
-/* Wave movement */
-@keyframes oceanMove {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-300px);
-    }
-}
-
-/* Image styling */
-img {
-    margin-top: 70px;
-    width: 600px;
-    max-width: 90%;
-    border-radius: 18px;
-    border: 5px solid white;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* Title text */
-h3 {
-    font-size: 30px;
-    margin-top: 25px;
-    color: #f7b500;
-    text-shadow: 0 0 10px rgba(255, 220, 120, 0.8);
-}
-
-/* Subtle floating effect */
-img:hover {
-    transform: scale(1.03);
-    transition: 0.3s ease;
 }
