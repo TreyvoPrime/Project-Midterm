@@ -1,0 +1,298 @@
+/* ===== GLOBAL RESET ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #e8e3d1;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+
+    background: radial-gradient(circle at top, #1c2233, #070b15 70%);
+}
+
+/* ===== MOVING CLOUDS ===== */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 140%;
+    height: 140%;
+    background: url("https://www.transparenttextures.com/patterns/cloudy.png");
+    opacity: 0.25;
+    animation: clouds 90s linear infinite;
+    z-index: -2;
+}
+
+@keyframes clouds {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-400px);
+    }
+}
+
+/* ===== SEA MIST ===== */
+
+body::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.08), transparent);
+    filter: blur(20px);
+    animation: fog 10s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes fog {
+    from {
+        opacity: .2;
+    }
+
+    to {
+        opacity: .5;
+    }
+}
+
+/* ===== MAIN CONTAINER ===== */
+
+.page_container {
+
+    height: 100vh;
+    max-width: 900px;
+
+    margin: auto;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* ===== TITLE ===== */
+
+h1 {
+
+    font-size: 60px;
+    letter-spacing: 6px;
+
+    color: #f1e4b8;
+
+    text-shadow:
+        0 0 10px rgba(255, 230, 150, .6),
+        0 0 25px rgba(255, 230, 150, .3),
+        0 0 60px rgba(255, 230, 150, .1);
+
+    animation: titleGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+
+    from {
+        text-shadow:
+            0 0 5px rgba(255, 230, 150, .4),
+            0 0 20px rgba(255, 230, 150, .2);
+    }
+
+    to {
+        text-shadow:
+            0 0 20px rgba(255, 230, 150, .9),
+            0 0 60px rgba(255, 230, 150, .4);
+    }
+
+}
+
+/* ===== IMAGE WRAPPER ===== */
+
+.image_wrapper {
+
+    position: relative;
+    display: inline-block;
+
+}
+
+/* ===== IMAGE ===== */
+
+.good_leader_ending {
+
+    width: 75%;
+    max-width: 550px;
+
+    border-radius: 10px;
+    border: 4px solid #c9b57a;
+
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, .9),
+        0 0 60px rgba(0, 0, 0, .7);
+
+    animation: floatImage 6s ease-in-out infinite;
+
+}
+
+@keyframes floatImage {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* ===== TEXT OVER IMAGE ===== */
+
+.nothing_text {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 42px;
+    letter-spacing: 4px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(0, 0, 0, 1),
+        0 0 30px rgba(0, 0, 0, .8),
+        0 0 60px rgba(0, 0, 0, .6);
+
+    animation: fadeInQuote 4s ease forwards;
+    opacity: 0;
+
+}
+
+@keyframes fadeInQuote {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+}
+
+/* ===== STORY TEXT ===== */
+
+h3 {
+
+    font-size: 20px;
+    line-height: 1.5;
+
+    max-width: 650px;
+
+    background: rgba(15, 18, 28, .65);
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, .8),
+        0 0 15px rgba(0, 0, 0, .6);
+
+    backdrop-filter: blur(4px);
+
+    animation: textFade 3s ease forwards;
+
+}
+
+@keyframes textFade {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ===== THE END ===== */
+
+.the_end {
+
+    font-size: 70px;
+    letter-spacing: 10px;
+
+    color: #e6d38f;
+
+    opacity: 0;
+
+    animation: endReveal 5s forwards;
+    animation-delay: 3s;
+
+    text-shadow:
+        0 0 15px rgba(255, 230, 150, .7),
+        0 0 40px rgba(255, 230, 150, .4),
+        0 0 90px rgba(255, 230, 150, .2);
+
+}
+
+@keyframes endReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 45px;
+    }
+
+    h3 {
+        font-size: 17px;
+    }
+
+    .the_end {
+        font-size: 45px;
+    }
+
+    .nothing_text {
+        font-size: 28px;
+    }
+
+}

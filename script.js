@@ -33,6 +33,12 @@ const scenes = {
              {text:"Send them to jail", next: "church"}
         ]
     },
+    church: {
+        title: "Church!",
+        image: "./images/church.png",
+        text: "The napoleonic codes have been passesd and you're at a courthouse viewing a courtcase! The judge rules in favor of conviction for the defendent. The defendent is sentenced to death. What do you do?",
+        decisions: [{text: "Try to escape the country", next: "assasination"}]
+    },
     pardon_convicted: {
         title: "A New friend",
         image: "./images/napoleon_friendly.jpg",
@@ -124,7 +130,7 @@ const scenes = {
         title: "Prussian Declaration of war!",
         image:"./images/prussian_declaration.jpg",
         text: "After recent victorious conflicts with the british, European powers rally around each other to defeat you. Prussia offical declares war on your empire!.💥 ",
-        decisions:  [{text: "Attempt diplomacy", next: "battle_gena"},
+        decisions:  [{text: "Attempt diplomacy", next: "prussian_diplomacy"},
             {text: "Participate in the battle of Gena", next: "battle_gena"}
 
         ]
@@ -139,12 +145,28 @@ const scenes = {
     },
     prussian_diplomacy: {
         title: "Prussian diplomatic attemtps!",
-        image:"./images/prussian_declaration.jpg",
-        text: "After recent victorious conflicts with the british, European powers rally around each other to defeat you. Prussia offical declares war on your empire!.💥” ",
-        decisions:  [{text: "Attempt diplomacy", next: "prussian_declaration"},
-            {text: "Participate in the battle of Gena", next: "battle_gena"}
+        image:"./images/meeting_napoleon.webp",
+        text: "You try diplomatic attempts with with the king of Prussia Frederick William III. Diplomatic attempts are successful and he has agreed to let his army fight along side you!🤝 ",
+        decisions:  [{text: "Continue East...", next: "eastern_europe"}]
+    },
+    eastern_europe: {
+        title: "War with Russia!",
+        image:"./images/eastern_europe.jpg",
+        text: "You are now at the steps of eastern Europe. Plotting a Invasion against Russia, what command shall you rally your troops around! to achieve victory in the conflict ",
+        decisions:  [{text: "Take on a scorch Earth war tactic🔥", next: "scorched_earth"}, {text: "Rally up logistics📦", next: "logistics_rallied"}]
 
-        ]
+    },
+    logistics_rallied: {
+        title: "Logistics",
+        image:"./images/logistics_rallied.jpg",
+        text: "Logistics has been raliied! You are prepared for war with Russia⚔️ ",
+        decisions:  [{text: "Take military action against Russia🪖", next: "russian_invasion"}]
+    },
+    scorched_earth: {
+        title: "Scorched Earth",
+        image:"./images/logistics_rallied.jpg",
+        text: "You invade Russia using a scorched earth tactic, burning everything your army crosses. However, your supplies are dwindling. Will your army be able to survive another fight?",
+        decisions:  [{text: "Continue the invasion⏩", next: "russian_invasion_scorched"}]
     },
     prussian_ports: {
         title: "The Prussian port!",
@@ -156,12 +178,85 @@ const scenes = {
 
         ]
     },
+    
     naval_dominance: {
         title: "Naval Superiority!",
         image:"./images/prussian_ports.jpg",
         text: "You are now ready to set sail with your newly built impressive navy. The british has nothing on you! set sail and crush anything that stands in your way. ",
 
         decisions:  []
+    },
+    economic_investment: {
+        title: "Economic Investment!",
+        image:"./images/farm_lands.jpg",
+        text: "The French people deserve economic investment after their hard work over the years; however, the military is in need of supplies and weaponry.",
+
+        decisions:  [{text: "Shift manufactory to arms production🏭", next: "economic_investment"},
+            {text: "go to farms and support your farmers🏁", next: "good_leader"}]
+    },
+    good_leader: {
+        title: "Farmers delight...",
+        image:"./images/farm_lands.jpg",
+        text: "You hear cheers as farmers run alongside your horse-draw carriage, grateful that you put them first. Well done you are proving to be a strong leader after all",
+
+        decisions:  []
+        
+    },
+    arms_production_increase: {
+        title: "Arms Industries!",
+        image:"./images/soilders_armed.jpg",
+        text: "You now posses the arms and Soilders shall recieve them. At the barrracks, you oversee the distribution of weapons preppering for conflict that now seems inevitable. ",
+
+        decisions:  [{text: "Take military action against Russia⚔️", next: "russian_invasion"}]
+        
+    },
+    russian_invasion: {
+        title: "Invasion of Russia",
+        image:"./images/russian_invasion.jpg",
+        text: "Your empire stands at the top of the world. Countries have been conquered, factions destroyed. All rally behind you. Is your army ready to commence an invasion so vast the world has never seen before? The bear of the continent shall be slaughtered. ",
+
+        decisions:  [{text: "Take military action against Russia⚔️", next: "russian_invasion"}]
+        
+    },
+    russian_invasion_scorched: {
+        title: "Invasion of Russia",
+        image:"./images/russian_invasion.jpg",
+        text: "Your empire stands at the top of the world. Countries have been conquered, factions destroyed. All rally behind you. Is your army ready to commence an invasion so vast the world has never seen before? The bear of the continent shall be slaughtered. ",
+
+        decisions:  [{text: "Take military action against Russia⚔️", next: "russian_invasion"}]
+        
+    },
+    battle_bordeno: {
+        title: "Battle of Bordino",
+        image:"./images/russian_invasion.jpg",
+        text: "The Battle of Borodino begins. Gunfire erupts on every side as the clash unfolds. Your army, weakened by dwindling supplies, begins to falter. You have lost this battle. There is no choice left but to order a retreat back to France.",
+
+        decisions:  [{text: "Retreat, Retreat, Retreat🏃", next: "retreat_french_homeland"}]
+        
+    },
+    battle_bordeno: {
+        title: "Battle of Bordino",
+        image:"./images/russian_invasion.jpg",
+        text: "The Battle of Borodino begins. Gunfire erupts on every side as the clash unfolds. Your army, weakened by dwindling supplies, begins to falter. You have lost this battle. There is no choice left but to order a retreat back to France.",
+
+        decisions:  [{text: "Retreat, Retreat, Retreat🏃", next: "battle_bordino_retreat"}]
+        
+    },
+    battle_bordino_retreat: {
+        title: "French Homeland",
+        image:"./images/battle_bordino_defeat.jpg",
+        text: "The british and her allies are  coming, your army is utterly humilated and weakend. A final stand must be made at the battle of waterloo! prove that your empire still has spark in it, and defeat the coalition!",
+
+        decisions:  [{text: "Retreat, Retreat, Retreat🏃", next: "battle_bordino_retreat"}]
+        
+    },
+    battle_waterloo: {
+        title: "Battle of Waterloo",
+        image:"./images/battle_bordino_defeat.jpg",
+        text: "The Battle of Waterloo has began. Your men are being defeated by the thousands. You look to your right and left, soilders of your once mighty army continues to drop. In the end you are defeated by the coaltion.",
+
+        decisions:  []
+        
     },
 }
 
@@ -250,6 +345,28 @@ function loadScene(sceneName){
     
         button1.onclick = () => {
             window.location.href = "./Endings/assasination.html"
+        }
+    
+        button2.style.display = "none"
+    }
+    if(sceneName === "good_leader"){
+
+        button1.style.display = "inline-block"
+        button1.innerText = "Enter the gilded age of the French Empire!💰"
+    
+        button1.onclick = () => {
+            window.location.href = "./Endings/goodLeader.html"
+        }
+    
+        button2.style.display = "none"
+    }
+    if(sceneName === "battle_waterloo"){
+
+        button1.style.display = "inline-block"
+        button1.innerText = "There's nothing we can do😔"
+    
+        button1.onclick = () => {
+            window.location.href = "./Endings/goodLeader.html"
         }
     
         button2.style.display = "none"

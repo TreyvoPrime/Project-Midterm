@@ -1,0 +1,228 @@
+/* ===== PAGE FOUNDATION ===== */
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    color: #f4e7c2;
+    overflow-x: hidden;
+
+    background: linear-gradient(180deg, #0b1426, #101c38, #0a1328);
+}
+
+/* container */
+
+.page_container {
+    position: relative;
+    padding-top: 60px;
+    max-width: 900px;
+    margin: auto;
+    z-index: 5;
+}
+
+/* ===== SUNLIGHT RAYS ===== */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -30%;
+    left: 50%;
+    width: 140%;
+    height: 140%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle at center,
+            rgba(255, 215, 120, 0.55),
+            rgba(255, 215, 120, 0.25),
+            transparent 70%);
+    animation: sunlightPulse 8s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes sunlightPulse {
+    0% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: translateX(-50%) scale(1.08);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* ===== FLOATING PARTICLES ===== */
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: radial-gradient(rgba(255, 215, 120, 0.6) 2px, transparent 2px);
+    background-size: 120px 120px;
+    animation: particlesMove 50s linear infinite;
+    opacity: 0.4;
+}
+
+@keyframes particlesMove {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(400px);
+    }
+}
+
+/* ===== TITLE ===== */
+
+h1 {
+    font-size: 60px;
+    letter-spacing: 3px;
+    color: #ffd966;
+
+    text-shadow:
+        0 0 10px rgba(255, 215, 120, 0.8),
+        0 0 30px rgba(255, 215, 120, 0.6),
+        0 0 60px rgba(255, 215, 120, 0.4);
+
+    animation: titleRise 2s ease forwards;
+}
+
+@keyframes titleRise {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== IMAGE ===== */
+
+.good_leader_ending {
+    width: 500px;
+    max-width: 90%;
+    margin-top: 30px;
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 40px rgba(255, 215, 120, 0.6),
+        0 0 80px rgba(255, 215, 120, 0.4);
+
+    animation: imageFade 2.5s ease forwards;
+}
+
+@keyframes imageFade {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== STORY TEXT ===== */
+
+h3 {
+    margin-top: 40px;
+    font-size: 22px;
+    line-height: 1.7;
+    padding: 0 40px;
+
+    color: #efe6c5;
+
+    animation: textAppear 3s ease forwards;
+}
+
+@keyframes textAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== EPIC END TEXT ===== */
+
+.the_end {
+    margin-top: 60px;
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: 8px;
+
+    color: #ffd966;
+
+    text-shadow:
+        0 0 10px #ffd966,
+        0 0 25px #ffcc33,
+        0 0 50px #ffaa00,
+        0 0 90px #ffaa00;
+
+    animation: endGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes endGlow {
+    from {
+        transform: scale(1);
+        text-shadow:
+            0 0 10px #ffd966,
+            0 0 30px #ffcc33,
+            0 0 60px #ffaa00;
+    }
+
+    to {
+        transform: scale(1.08);
+        text-shadow:
+            0 0 20px #ffd966,
+            0 0 50px #ffcc33,
+            0 0 100px #ffaa00;
+    }
+}
+
+/* ===== GOLDEN HORIZON LINE ===== */
+
+.page_container::after {
+    content: "";
+    display: block;
+    width: 300px;
+    height: 3px;
+    margin: 40px auto;
+
+    background: linear-gradient(to right,
+            transparent,
+            #ffd966,
+            transparent);
+
+    animation: lineGlow 4s infinite ease-in-out;
+}
+
+@keyframes lineGlow {
+    0% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .3;
+    }
+}
