@@ -30,7 +30,7 @@ const scenes = {
         image: "./images/court.jpg",
         text: "The napoleonic codes have been passesd and you're at a courthouse viewing a courtcase! The judge rules in favor of conviction for the defendent. The defendent is sentenced to death. What do you do?",
         decisions: [{text: "Pardon the convicted", next: "pardon_convicted"},
-             {text:"Send them to jail", next: "church"}
+             {text:"Send them to jail", next: "assasination"}
         ]
     },
     church: {
@@ -160,7 +160,7 @@ const scenes = {
         title: "Logistics",
         image:"./images/logistics_rallied.jpg",
         text: "Logistics has been raliied! You are prepared for war with Russia⚔️ ",
-        decisions:  [{text: "Take military action against Russia🪖", next: "russian_invasion"}]
+        decisions:  [{text: "Take military action against Russia🪖", next: "russian_invasion_scorched"}]
     },
     scorched_earth: {
         title: "Scorched Earth",
@@ -214,8 +214,7 @@ const scenes = {
         title: "Invasion of Russia",
         image:"./images/russian_invasion.jpg",
         text: "Your empire stands at the top of the world. Countries have been conquered, factions destroyed. All rally behind you. Is your army ready to commence an invasion so vast the world has never seen before? The bear of the continent shall be slaughtered. ",
-
-        decisions:  [{text: "Take military action against Russia⚔️", next: "russian_invasion"}]
+        decisions:  [{text: "Take military action against Russia⚔️", next: "battle_bordeno_victory"}]
         
     },
     russian_invasion_scorched: {
@@ -223,20 +222,12 @@ const scenes = {
         image:"./images/russian_invasion.jpg",
         text: "Your empire stands at the top of the world. Countries have been conquered, factions destroyed. All rally behind you. Is your army ready to commence an invasion so vast the world has never seen before? The bear of the continent shall be slaughtered. ",
 
-        decisions:  [{text: "Take military action against Russia⚔️", next: "russian_invasion"}]
+        decisions:  [{text: "Take military action against Russia⚔️", next: "battle_bordeno"}]
         
     },
     battle_bordeno: {
         title: "Battle of Bordino",
-        image:"./images/russian_invasion.jpg",
-        text: "The Battle of Borodino begins. Gunfire erupts on every side as the clash unfolds. Your army, weakened by dwindling supplies, begins to falter. You have lost this battle. There is no choice left but to order a retreat back to France.",
-
-        decisions:  [{text: "Retreat, Retreat, Retreat🏃", next: "retreat_french_homeland"}]
-        
-    },
-    battle_bordeno: {
-        title: "Battle of Bordino",
-        image:"./images/russian_invasion.jpg",
+        image:"./images/battle_bordino.jpg",
         text: "The Battle of Borodino begins. Gunfire erupts on every side as the clash unfolds. Your army, weakened by dwindling supplies, begins to falter. You have lost this battle. There is no choice left but to order a retreat back to France.",
 
         decisions:  [{text: "Retreat, Retreat, Retreat🏃", next: "battle_bordino_retreat"}]
@@ -244,20 +235,42 @@ const scenes = {
     },
     battle_bordino_retreat: {
         title: "French Homeland",
-        image:"./images/battle_bordino_defeat.jpg",
+        image:"./images/battle_bordino_defeat.webp",
         text: "The british and her allies are  coming, your army is utterly humilated and weakend. A final stand must be made at the battle of waterloo! prove that your empire still has spark in it, and defeat the coalition!",
 
-        decisions:  [{text: "Retreat, Retreat, Retreat🏃", next: "battle_bordino_retreat"}]
+        decisions:  [{text: "Make a stand at Waterloo💨", next: "battle_waterloo"}]
         
     },
     battle_waterloo: {
         title: "Battle of Waterloo",
-        image:"./images/battle_bordino_defeat.jpg",
+        image:"./images/battle_waterloo.jpg",
         text: "The Battle of Waterloo has began. Your men are being defeated by the thousands. You look to your right and left, soilders of your once mighty army continues to drop. In the end you are defeated by the coaltion.",
 
         decisions:  []
         
     },
+    strike_britain_now: {
+        title: "Immediate Invasion",
+        image: "./images/british_victory.jpg",
+        text: "War with Britain has begun. The British Empire commands the seas, while you enter the conflict unprepared. In a brutal battle, your army is crushed and forced into a humiliating defeat. The time has come to surrender and lay down your arms. The British Empire now stands ready to claim dominance over the world.",
+        decisions: []
+    },
+    battle_bordeno_victory: {
+        title: "Battle of Bordino",
+        image:"./images/russian_invasion.jpg",
+        text: "The Battle of Borodino begins. Gunfire erupts on every side as the clash unfolds. Your army, strengthened by your careful planning and fully prepared logistics, holds the advantage. The Russians, running low on supplies, are utterly defeated. You emerge victorious.",
+
+        decisions:  [{text: "Let the Russians surrender🏃", next: "victory_bordeno"}, 
+            {text: "Scorch Moscow into flames 🏃", next: "burning_moscow"}
+        ]
+    },
+    burning_moscow: {
+        title: "Burning Moscow",
+        image:"./images/russian_invasion.jpg",
+        text: "Moscow shall be wiped off the face of the Earth. The Russians will never rise again. The world will be yours, as you have proven victorious!",
+
+        decisions:  []
+    }
 }
 
 const heading = document.getElementById("main_heading")
@@ -316,62 +329,91 @@ function loadScene(sceneName){
         button2.style.display = "none"
         button2Next = null
     }
-    if(sceneName === "faroe_islands"){
+    if (sceneName === "faroe_islands") {
 
-        button1.style.display = "inline-block"
-        button1.innerText = "Enter Paradise ☀️"
+        button1.style.display = "inline-block";
+        button1.innerText = "Enter Paradise ☀️";
     
-        button1.onclick = () => {
-            window.location.href = "./Endings/paradise.html"
-        }
+        button1.addEventListener("click", () => {
+            window.location.href = "./Endings/paradise.html";
+        });
     
-        button2.style.display = "none"
+        button2.style.display = "none";
     }
-    if(sceneName === "naval_dominance"){
-
-        button1.style.display = "inline-block"
-        button1.innerText = "Achieve Naval Supremacy⚓"
     
-        button1.onclick = () => {
-            window.location.href = "./Endings/naval_supremacy.html"
-        }
+    if (sceneName === "naval_dominance") {
     
-        button2.style.display = "none"
+        button1.style.display = "inline-block";
+        button1.innerText = "Achieve Naval Supremacy⚓";
+    
+        button1.addEventListener("click", () => {
+            window.location.href = "./Endings/naval_supremacy.html";
+        });
+    
+        button2.style.display = "none";
     }
-    if(sceneName === "assasination"){
-
-        button1.style.display = "inline-block"
-        button1.innerText = "Accept your fate, and rest in silence🩸"
     
-        button1.onclick = () => {
-            window.location.href = "./Endings/assasination.html"
-        }
+    if (sceneName === "assasination") {
     
-        button2.style.display = "none"
+        button1.style.display = "inline-block";
+        button1.innerText = "Accept your fate, and rest in silence🩸";
+    
+        button1.addEventListener("click", () => {
+            window.location.href = "./Endings/assasination.html";
+        });
+    
+        button2.style.display = "none";
     }
-    if(sceneName === "good_leader"){
-
-        button1.style.display = "inline-block"
-        button1.innerText = "Enter the gilded age of the French Empire!💰"
     
-        button1.onclick = () => {
-            window.location.href = "./Endings/goodLeader.html"
-        }
+    if (sceneName === "good_leader") {
     
-        button2.style.display = "none"
+        button1.style.display = "inline-block";
+        button1.innerText = "Enter the gilded age of the French Empire!💰";
+    
+        button1.addEventListener("click", () => {
+            window.location.href = "./Endings/goodLeader.html";
+        });
+    
+        button2.style.display = "none";
     }
-    if(sceneName === "battle_waterloo"){
-
-        button1.style.display = "inline-block"
-        button1.innerText = "There's nothing we can do😔"
     
-        button1.onclick = () => {
-            window.location.href = "./Endings/goodLeader.html"
-        }
+    if (sceneName === "battle_waterloo") {
     
-        button2.style.display = "none"
+        button1.style.display = "inline-block";
+        button1.innerText = "There's nothing we can do😔";
+    
+        button1.addEventListener("click", () => {
+            window.location.href = "./Endings/realEnding.html";
+        });
+    
+        button2.style.display = "none";
+    }
+    
+    if (sceneName === "strike_britain_now") {
+    
+        button1.style.display = "inline-block";
+        button1.innerText = "Accept defeat😔";
+    
+        button1.addEventListener("click", () => {
+            window.location.href = "./Endings/defeat.html";
+        });
+    
+        button2.style.display = "none";
+    }
+    
+    if (sceneName === "burning_moscow") {
+    
+        button1.style.display = "inline-block";
+        button1.innerText = "Accept defeat😔";
+    
+        button1.addEventListener("click", () => {
+            window.location.href = "./Endings/burning_m.html";
+        });
+    
+        button2.style.display = "none";
     }
 }
+
 
 loadScene("coronation")
 function reset_story() {
