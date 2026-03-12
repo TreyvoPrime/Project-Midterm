@@ -13,14 +13,14 @@ const scenes = {
         image: "./images/declaration_war_UK1.webp",
         text: "War with Britain begins. The British Empire controls the seas, while France dominates the continent. Prime Minister William Pitt has rallied Britain and its allies to resist your growing power. Will you attempt to recruit more soldiers to strengthen your army, or strike at it now and not later?",
         decisions: [
-            { text: "Head to recruit soldiers", next: "soilder_recruitment" },
+            { text: "Recruit soldiers", next: "soilder_recruitment" },
             { text: "Strike Britain now", next: "strike_britain_now" }
         ]
     },
     napoleonic_code: {
         title: "Napoleonic Code",
         image: "./images/napoleonic_codes.jpg",
-        text: "You reform the French legal system. Courts, and churches have been reformed to be more civil. Your citizens are already looking upwards to you! will you visit a courthouse to see a impending courtcase, or visit a church⛪.",
+        text: "You reform the French legal system. Courts, and churches have been reformed to be more civil. Your citizens are already looking upwards to you! will you visit a courthouse to see a impending courtcase, or visit a church⛪",
         decisions: [{text: "Visit a courthouse", next: "court"},
              {text:"Visit a church", next: "church"}
         ]
@@ -28,7 +28,7 @@ const scenes = {
     court: {
         title: "Courthouse",
         image: "./images/court.jpg",
-        text: "The napoleonic codes have been passesd and you're at a courthouse viewing a courtcase! The judge rules in favor of conviction for the defendent. The defendent is sentenced to death. What do you do?",
+        text: "The napoleonic codes have been passed and you're at a courthouse viewing a courtcase! The judge rules in favor of conviction for the defendent. The defendent is sentenced to death. What do you do?",
         decisions: [{text: "Pardon the convicted", next: "pardon_convicted"},
              {text:"Send them to jail", next: "assasination"}
         ]
@@ -43,14 +43,14 @@ const scenes = {
         title: "A New friend",
         image: "./images/napoleon_friendly.jpg",
         text: "A new friend has been made! he's a cool guy should you ask him to join the military or let him go back to normal life?🪖",
-        decisions: [{text: "recruit them into the military🪖", next: "soilder_recruitment"},
+        decisions: [{text: "recruit into the military🪖", next: "soilder_recruitment"},
              {text:"Leave them to go back into normal life🧑", next: "assasination"}
         ]
     },
     assasination: {
         title: "Assasination",
         image: "./images//dark_forest.jpg",
-        text: "Evil has been done! You have been assasinated by your so called friend! You have failed your people! Your legacy is now ending in a tragic manner!",
+        text: "Evil has been done! You have been assasinated by a deranged frenchmen! You have failed your people! Your legacy is now ending in a tragic manner!",
 
         decisions: []
     },
@@ -116,7 +116,7 @@ const scenes = {
     convoy_raid: {
         title: "Convoy Raid!",
         image:"./images/convoy_raid.jpg",
-        text: "you successfully board and raid a British convoy, capturing countless supplies that could greatly aid the war effort. Yet your craving for meatballs threatens to cut into the valuable spoils of the raid. What is your move?” ",
+        text: "you successfully board and raid a British convoy, capturing countless supplies that could greatly aid the war effort. Yet your craving for meatballs threatens to cut into the valuable spoils of the raid. What is your move? ",
         decisions:  [{text: "Return to port with all supplies", next: "prussian_declaration"},
             {text: "Eat the meatballs", next: "meatball_scene"}]
     },
@@ -159,8 +159,8 @@ const scenes = {
     logistics_rallied: {
         title: "Logistics",
         image:"./images/logistics_rallied.jpg",
-        text: "Logistics has been raliied! You are prepared for war with Russia⚔️ ",
-        decisions:  [{text: "Take military action against Russia🪖", next: "russian_invasion_scorched"}]
+        text: "Logistics have been fully mobilized and organized for the campaign. You are prepared for war with Russia⚔️ ",
+        decisions:  [{text: "March easterwards!➡️", next: "russian_invasion"}]
     },
     scorched_earth: {
         title: "Scorched Earth",
@@ -191,7 +191,7 @@ const scenes = {
         image:"./images/farm_lands.jpg",
         text: "The French people deserve economic investment after their hard work over the years; however, the military is in need of supplies and weaponry.",
 
-        decisions:  [{text: "Shift manufactory to arms production🏭", next: "economic_investment"},
+        decisions:  [{text: "Shift manufactory to arms production🏭", next: "arms_production_increase"},
             {text: "go to farms and support your farmers🏁", next: "good_leader"}]
     },
     good_leader: {
@@ -227,7 +227,7 @@ const scenes = {
     },
     battle_bordeno: {
         title: "Battle of Bordino",
-        image:"./images/battle_bordino.jpg",
+        image:"./images/battle_boreno.jpg",
         text: "The Battle of Borodino begins. Gunfire erupts on every side as the clash unfolds. Your army, weakened by dwindling supplies, begins to falter. You have lost this battle. There is no choice left but to order a retreat back to France.",
 
         decisions:  [{text: "Retreat, Retreat, Retreat🏃", next: "battle_bordino_retreat"}]
@@ -235,7 +235,7 @@ const scenes = {
     },
     battle_bordino_retreat: {
         title: "French Homeland",
-        image:"./images/battle_bordino_defeat.webp",
+        image:"./images/battle_boreno_retreat.webp",
         text: "The british and her allies are  coming, your army is utterly humilated and weakend. A final stand must be made at the battle of waterloo! prove that your empire still has spark in it, and defeat the coalition!",
 
         decisions:  [{text: "Make a stand at Waterloo💨", next: "battle_waterloo"}]
@@ -256,21 +256,71 @@ const scenes = {
         decisions: []
     },
     battle_bordeno_victory: {
-        title: "Battle of Bordino",
-        image:"./images/russian_invasion.jpg",
+        title: "Battle of Bordeno",
+        image:"./images/battle_boreno_victory.jpg",
         text: "The Battle of Borodino begins. Gunfire erupts on every side as the clash unfolds. Your army, strengthened by your careful planning and fully prepared logistics, holds the advantage. The Russians, running low on supplies, are utterly defeated. You emerge victorious.",
 
-        decisions:  [{text: "Let the Russians surrender🏃", next: "victory_bordeno"}, 
-            {text: "Scorch Moscow into flames 🏃", next: "burning_moscow"}
+        decisions:  [{text: "Let the Russians surrender🏃", next: "russian_surrender"}, 
+            {text: "Scorch Moscow into flames 🔥", next: "burning_moscow"}
         ]
     },
     burning_moscow: {
         title: "Burning Moscow",
-        image:"./images/russian_invasion.jpg",
+        image:"./images/burning_m_2.jpg",
         text: "Moscow shall be wiped off the face of the Earth. The Russians will never rise again. The world will be yours, as you have proven victorious!",
 
         decisions:  []
-    }
+    },
+    russian_surrender: {
+        title: "Russians Surrender",
+        image:"./images/russian_surrender.jpg",
+        text: "The Russiasns have surrendered, after the battle. What will you do with them?",
+
+        decisions:  [{text: "Recruit into your army🪖", next: "recruit_russians"}, 
+            {text: "Leave them be🪑", next: "leave_russians_be"}]
+    },
+    recruit_russians: {
+        title: "Russian Friendship",
+        image:"./images/russian_invasion.jpg",
+        text: "The Russians will fight alongside you in the final battle at Waterloo. Head to Waterloo now✨",
+
+        decisions:  [{text: "March to Waterloo⚔️", next: "waterloo_battle"}]
+    },
+    leave_russians_be: {
+        title: "Russians Accept",
+        image:"./images/winter_land.jpg",
+        text: "You have chosen to leave the Russians in their home country. They are forever grateful for your kindness. You must now head to Waterloo for a final battle.",
+
+        decisions:  [{text: "March to Waterloo⚔️", next: "waterloo_battle"}]
+    },
+    waterloo_battle: {
+        title: "Waterloo",
+        image:"./images/waterloo_preperation.jpg",
+        text: "The time has come at Waterloo. The battle is fierce, but you have proven yourself a true leader. Command your troops with precision, and secure victory on the battlefield.",
+
+        decisions:  [{text: "Im Ready🌟", next: "battle"}]
+    },
+    battle: {
+        title: "The Final Volley",
+        image: "./images/waterloo_final.jpg",
+        text: "Your army stands in formation. The enemy approaches. Command your line with precision.",
+        decisions: []
+    },
+    napoleon_victory: {
+        title: "Victory at Waterloo",
+        image:"./images/napoleon_victory_1.webp",
+        text: "The coalition forces have been defeated and sent running. You have secured victory at Waterloo. The world is yours to command. Your legacy is secured, and you will go down in history as one of the greats.",
+
+        decisions:  []
+    },
+    battle_waterloo_incorrect_command: {
+        title: "Battle of Waterloo",
+        image:"./images/battle_waterloo.jpg",
+        text: "The Battle of Waterloo has began. Your men are being defeated by the thousands. You look to your right and left, soilders of your once mighty army continues to drop. You have issued the wrong command❌ in the wrong order. In the end you are defeated by the coaltion.",
+
+        decisions:  []
+        
+    },
 }
 
 const heading = document.getElementById("main_heading")
@@ -280,6 +330,13 @@ const second_image = document.getElementById("second_image")
 const button1 = document.getElementById("decision_one")
 const button2 = document.getElementById("decision_two")
 const button3 = document.getElementById("restart_button")
+const battleControls = document.getElementById("battle_controls")
+
+const makeReady = document.getElementById("make_ready")
+const makePresent = document.getElementById("make_present")
+const fireButton = document.getElementById("fire")
+
+let battleStep = 0
 let button1Next = null
 let button2Next = null
 
@@ -289,131 +346,241 @@ button1.addEventListener("click", () => {
 button2.addEventListener("click", () => {
     if(button2Next) loadScene(button2Next)
 })
+function playMusketSound(){
+    for(let i = 0; i < 3; i++){
 
+        setTimeout(() => {
+
+            const musket = new Audio("./Audio/musket_fire.mp3")
+            musket.play()
+
+        }, i * 200)
+
+    }
+
+}
+function formatTitle(title){
+
+    const words = title.split(" ")
+
+    for(let i = 0; i < words.length; i++){
+
+        words[i] = words[i][0].toUpperCase() + words[i].slice(1)
+
+    }
+
+    return words.join(" ")
+
+}
 function loadScene(sceneName){
-    const scene = scenes[sceneName]
 
-    heading.innerText = scene.title
-    message.innerText = scene.text
-    image.src = scene.image
+    try {
 
-    if(scene.secondImage){
-        second_image.src = scene.secondImage
-        second_image.style.display = "inline-block"
+        const scene = scenes[sceneName]
 
-        image.style.height = "250px"
-        image.style.width = "auto"
-        second_image.style.height = "250px"
-        second_image.style.width = "auto"
-    } else {
-        second_image.style.display = "none"
+        if(!scene){
+            throw new Error("Scene not found: " + sceneName)
+        }
 
-        image.style.height = "350px"
-        image.style.width = "575px"
-    }
+        heading.innerText = formatTitle(scene.title)
+        message.innerText = scene.text
+        image.src = scene.image
 
-    if(scene.decisions && scene.decisions[0]){
-        button1.innerText = scene.decisions[0].text
-        button1.style.display = "inline-block"
-        button1Next = scene.decisions[0].next
-    } else {
+        if(scene.secondImage){
+            second_image.src = scene.secondImage
+            second_image.style.display = "inline-block"
+
+            image.style.height = "250px"
+            image.style.width = "auto"
+            second_image.style.height = "250px"
+            second_image.style.width = "auto"
+        } else {
+            second_image.style.display = "none"
+
+            image.style.height = "350px"
+            image.style.width = "575px"
+        }
+
+        if(scene.decisions && scene.decisions[0]){
+            button1.innerText = scene.decisions[0].text
+            button1.style.display = "inline-block"
+            button1Next = scene.decisions[0].next
+        } else {
+            button1.style.display = "none"
+            button1Next = null
+        }
+
+        if(scene.decisions && scene.decisions[1]){
+            button2.innerText = scene.decisions[1].text
+            button2.style.display = "inline-block"
+            button2Next = scene.decisions[1].next
+        } else {
+            button2.style.display = "none"
+            button2Next = null
+        }
+
+        if (sceneName === "faroe_islands") {
+            button1.style.display = "inline-block"
+            button1.innerText = "Enter Paradise ☀️"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/paradise.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+        if (sceneName === "naval_dominance") {
+            button1.style.display = "inline-block"
+            button1.innerText = "Achieve Naval Supremacy⚓"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/naval_supremacy.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+        if (sceneName === "assasination") {
+            button1.style.display = "inline-block"
+            button1.innerText = "Accept your fate, and rest in silence🩸"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/assasination.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+        if (sceneName === "good_leader") {
+            button1.style.display = "inline-block"
+            button1.innerText = "Enter the gilded age of the French Empire!💰"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/goodLeader.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+        if (sceneName === "battle_waterloo"){
+            button1.style.display = "inline-block"
+            button1.innerText = "There's nothing we can do😔"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/realEnding.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+        if (sceneName === "strike_britain_now") {
+            button1.style.display = "inline-block"
+            button1.innerText = "Accept defeat😔"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/defeat.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+        if (sceneName === "burning_moscow") {
+            button1.style.display = "inline-block"
+            button1.innerText = "Accept defeat😔"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/burning_m.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+        if(sceneName === "battle"){
+            battleControls.style.display = "block"
+
+            button1.style.display = "none"
+            button2.style.display = "none"
+
+            battleStep = 0
+        } else {
+            battleControls.style.display = "none"
+        }
+
+        if (sceneName === "battle_waterloo_incorrect_command"){
+            button1.style.display = "inline-block"
+            button1.innerText = "There's nothing we can do😔"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/realEnding.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+        if (sceneName === "napoleon_victory"){
+            button1.style.display = "inline-block"
+            button1.innerText = "Rule the world🌍"
+
+            button1.onclick = () => {
+                window.location.href = "./Endings/VictoryEnding.html"
+            }
+
+            button2.style.display = "none"
+        }
+
+    } catch(error) {
+
+        console.error("Scene loading error:", error)
+
+        heading.innerText = "Error"
+        message.innerText = "Scene could not be loaded."
+        image.src = ""
+
         button1.style.display = "none"
-        button1Next = null
-    }
-
-    if(scene.decisions && scene.decisions[1]){
-        button2.innerText = scene.decisions[1].text
-        button2.style.display = "inline-block"
-        button2Next = scene.decisions[1].next
-    } else {
         button2.style.display = "none"
-        button2Next = null
-    }
-    if (sceneName === "faroe_islands") {
+        second_image.style.display = "none"
+        battleControls.style.display = "none"
 
-        button1.style.display = "inline-block";
-        button1.innerText = "Enter Paradise ☀️";
-    
-        button1.addEventListener("click", () => {
-            window.location.href = "./Endings/paradise.html";
-        });
-    
-        button2.style.display = "none";
-    }
-    
-    if (sceneName === "naval_dominance") {
-    
-        button1.style.display = "inline-block";
-        button1.innerText = "Achieve Naval Supremacy⚓";
-    
-        button1.addEventListener("click", () => {
-            window.location.href = "./Endings/naval_supremacy.html";
-        });
-    
-        button2.style.display = "none";
-    }
-    
-    if (sceneName === "assasination") {
-    
-        button1.style.display = "inline-block";
-        button1.innerText = "Accept your fate, and rest in silence🩸";
-    
-        button1.addEventListener("click", () => {
-            window.location.href = "./Endings/assasination.html";
-        });
-    
-        button2.style.display = "none";
-    }
-    
-    if (sceneName === "good_leader") {
-    
-        button1.style.display = "inline-block";
-        button1.innerText = "Enter the gilded age of the French Empire!💰";
-    
-        button1.addEventListener("click", () => {
-            window.location.href = "./Endings/goodLeader.html";
-        });
-    
-        button2.style.display = "none";
-    }
-    
-    if (sceneName === "battle_waterloo") {
-    
-        button1.style.display = "inline-block";
-        button1.innerText = "There's nothing we can do😔";
-    
-        button1.addEventListener("click", () => {
-            window.location.href = "./Endings/realEnding.html";
-        });
-    
-        button2.style.display = "none";
-    }
-    
-    if (sceneName === "strike_britain_now") {
-    
-        button1.style.display = "inline-block";
-        button1.innerText = "Accept defeat😔";
-    
-        button1.addEventListener("click", () => {
-            window.location.href = "./Endings/defeat.html";
-        });
-    
-        button2.style.display = "none";
-    }
-    
-    if (sceneName === "burning_moscow") {
-    
-        button1.style.display = "inline-block";
-        button1.innerText = "Accept defeat😔";
-    
-        button1.addEventListener("click", () => {
-            window.location.href = "./Endings/burning_m.html";
-        });
-    
-        button2.style.display = "none";
     }
 }
+function loseBattle(){
+    message.innerText = "Your commands were disorganized. The line collapses and the coalition has overwhelmed you."
+    loadScene("battle_waterloo_incorrect_command")
+}
+makeReady.addEventListener("click", () => {
 
+    if (battleStep === 0) {
+        battleStep = 1
+        message.innerText = "Your soldiers raise their muskets..."
+    } else {
+        loseBattle()
+    }
+
+})
+
+makePresent.addEventListener("click", () => {
+
+    if (battleStep === 1) {
+        battleStep = 2
+        message.innerText = "Your army takes aim at the enemy line..."
+    } else {
+        loseBattle()
+    }
+
+})
+
+fireButton.addEventListener("click", () => {
+
+    if (battleStep === 2) {
+        playMusketSound()
+        message.innerText = "A volley erupts across the battlefield!"
+        loadScene("napoleon_victory")
+    } else {
+        loseBattle()
+    }
+
+})
 
 loadScene("coronation")
 function reset_story() {

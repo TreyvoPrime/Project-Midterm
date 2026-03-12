@@ -1,0 +1,318 @@
+/* ===================================== */
+/* GLOBAL RESET */
+/* ===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    color: #f5e7b8;
+    overflow: hidden;
+    height: 100vh;
+
+    background:
+        radial-gradient(circle at top, #2b3c6b 0%, #0d1630 60%, #050914 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ===================================== */
+/* GRAND IMPERIAL LIGHT */
+/* ===================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140%;
+    height: 140%;
+
+    background:
+        radial-gradient(circle,
+            rgba(255, 215, 120, 0.6),
+            rgba(255, 215, 120, 0.3),
+            rgba(255, 215, 120, 0.1),
+            transparent 70%);
+
+    animation: divineLight 10s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes divineLight {
+
+    0% {
+        opacity: .6;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    100% {
+        opacity: .6;
+        transform: translateX(-50%) scale(1);
+    }
+
+}
+
+
+/* ===================================== */
+/* FLOATING PARTICLES */
+/* ===================================== */
+
+body::after {
+
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+
+    background-image:
+        radial-gradient(rgba(255, 215, 120, 0.8) 2px, transparent 2px),
+        radial-gradient(rgba(255, 180, 80, 0.6) 2px, transparent 2px);
+
+    background-size: 140px 140px;
+    animation: floatingVictory 60s linear infinite;
+    opacity: .4;
+}
+
+@keyframes floatingVictory {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(500px);
+    }
+}
+
+
+/* ===================================== */
+/* PAGE CONTAINER */
+/* ===================================== */
+
+.page_container {
+
+    position: relative;
+    z-index: 5;
+
+    max-width: 850px;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    animation: fadeInPage 2s ease forwards;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ===================================== */
+/* TITLE */
+/* ===================================== */
+
+h1 {
+
+    font-size: 48px;
+    letter-spacing: 3px;
+
+    color: #ffd86b;
+
+    text-shadow:
+        0 0 10px #ffd86b,
+        0 0 25px #ffcc33,
+        0 0 50px #ffaa00;
+
+}
+
+
+/* ===================================== */
+/* IMAGE WRAPPER */
+/* ===================================== */
+
+.image_wrapper {
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* ===================================== */
+/* HALO */
+/* ===================================== */
+
+.image_wrapper::before {
+
+    content: "";
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    background:
+        radial-gradient(circle,
+            rgba(255, 230, 120, .9),
+            rgba(255, 215, 120, .4),
+            transparent 70%);
+
+    border-radius: 50%;
+    animation: haloPulse 6s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes haloPulse {
+
+    0% {
+        transform: scale(1);
+        opacity: .8;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: .8;
+    }
+
+}
+
+
+/* ===================================== */
+/* RAYS */
+/* ===================================== */
+
+.image_wrapper::after {
+
+    content: "";
+    position: absolute;
+
+    width: 480px;
+    height: 480px;
+
+    background:
+        repeating-conic-gradient(from 0deg,
+            rgba(255, 220, 120, .25) 0deg,
+            rgba(255, 220, 120, 0) 15deg);
+
+    border-radius: 50%;
+    animation: raysSpin 90s linear infinite;
+    z-index: 0;
+}
+
+@keyframes raysSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ===================================== */
+/* IMAGE */
+/* ===================================== */
+
+.good_ending {
+
+    position: relative;
+    z-index: 2;
+
+    width: 360px;
+    max-width: 80%;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 40px rgba(255, 215, 120, .8),
+        0 0 80px rgba(255, 215, 120, .4);
+}
+
+
+/* ===================================== */
+/* STORY TEXT */
+/* ===================================== */
+
+h3 {
+
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 0 20px;
+
+    color: #f1e6c6;
+    text-shadow: 0 0 10px rgba(255, 215, 120, .3);
+
+}
+
+
+/* ===================================== */
+/* GOLD DIVIDER */
+/* ===================================== */
+
+.page_container::after {
+
+    content: "";
+    display: block;
+
+    width: 220px;
+    height: 2px;
+
+    background:
+        linear-gradient(to right,
+            transparent,
+            #ffd86b,
+            #ffcc33,
+            #ffd86b,
+            transparent);
+}
+
+
+/* ===================================== */
+/* THE END */
+/* ===================================== */
+
+.the_end {
+
+    font-size: 48px;
+    letter-spacing: 8px;
+    font-weight: bold;
+
+    color: #ffd86b;
+
+    text-shadow:
+        0 0 15px #ffd86b,
+        0 0 40px #ffcc33,
+        0 0 80px #ffaa00;
+
+}
