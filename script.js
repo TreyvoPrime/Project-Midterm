@@ -347,12 +347,14 @@ button1.addEventListener("click", () => {
 button2.addEventListener("click", () => {
     if(button2Next) loadScene(button2Next)
 })
+
+//loop through and play musket sound so it sounds like a musket being volley fired
 function playMusketSound(){
     for(let i = 0; i < 3; i++){
 
         setTimeout(() => {
 
-            const musket = new Audio("./Audio/musket_fire.mp3")
+            const musket = new Audio("/Project-Midterm/Audio/musket_fire.mp3")
             musket.play()
 
         }, i * 200)
