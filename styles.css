@@ -10,19 +10,18 @@ box-sizing:border-box;
 
 html, body{
 
-min-height:100vh;
-
+height:100%;
 font-family:'Georgia','Times New Roman',serif;
 
 background:radial-gradient(circle at top,#0b0b12,#1a1a2e);
 
 color:#f5e7b8;
 
-overflow-x:hidden !important;
+overflow:hidden;
 
 display:flex;
 justify-content:center;
-align-items:flex-start;
+align-items:center;
 
 padding:20px;
 
@@ -31,8 +30,6 @@ perspective:1000px;
 animation:backgroundShift 20s ease-in-out infinite alternate;
 
 }
-
-/* ============================================= */
 
 @keyframes backgroundShift{
 
@@ -110,10 +107,10 @@ animation:slowPulse 12s infinite alternate;
 
 text-align:center;
 
-max-width:1000px !important;
-width:100% !important;
+max-width:1000px;
+width:100%;
 
-margin:auto;
+overflow:hidden;
 
 }
 
@@ -123,7 +120,7 @@ margin:auto;
 
 h1#main_heading{
 
-font-size:clamp(1.8rem,5vw,3.5rem);
+font-size:3.5rem;
 
 font-weight:bold;
 
@@ -140,8 +137,6 @@ margin-bottom:30px;
 opacity:0;
 
 animation:headingFadeIn 1.3s ease-out forwards;
-
-text-align:center;
 
 }
 
@@ -169,7 +164,7 @@ position:relative;
 
 background:rgba(0,0,0,0.45);
 
-padding:clamp(15px,4vw,30px);
+padding:30px;
 
 border-radius:25px;
 
@@ -181,11 +176,7 @@ backdrop-filter:blur(6px);
 
 margin-bottom:35px;
 
-width:100% !important;
-max-width:900px !important;
-
-height:auto !important;
-min-height:auto !important;
+min-height:600px;
 
 display:flex;
 
@@ -194,6 +185,10 @@ flex-direction:column;
 align-items:center;
 
 justify-content:flex-start;
+
+transform-style:preserve-3d;
+
+perspective:800px;
 
 }
 
@@ -210,26 +205,19 @@ display:flex;
 justify-content:center;
 align-items:flex-end;
 
-gap:20px;
+gap:25px;
 
 flex-wrap:wrap;
 
-margin-bottom:25px;
-
-width:100% !important;
-max-width:900px !important;
+margin-bottom:30px;
 
 }
 
-/* ============================================= */
-/* IMAGES */
-/* ============================================= */
-
 .image_container img{
 
-max-width:100% !important;
-width:auto !important;
-height:auto !important;
+max-width:100%;
+
+height:auto;
 
 border-radius:20px;
 
@@ -239,7 +227,7 @@ box-shadow:
 
 opacity:0;
 
-transform:none !important;
+transform:scale(0.95) translateY(20px);
 
 animation:imageFadeIn 1s forwards;
 
@@ -250,22 +238,9 @@ filter 0.4s ease;
 
 }
 
-/* primary story images */
-
-#images,
-#second_image{
-
-max-width:clamp(260px,45vw,550px) !important;
-width:100% !important;
-height:auto !important;
-
-}
-
-/* hover */
-
 .image_container img:hover{
 
-transform:scale(1.05) rotate(-0.5deg) translateY(-5px) !important;
+transform:scale(1.05) rotate(-0.5deg) translateY(-5px);
 
 box-shadow:
 0 0 50px rgba(255,215,0,0.7),
@@ -275,19 +250,19 @@ filter:brightness(1.15) saturate(1.2);
 
 }
 
-/* napoleon character */
+/* Napoleon fixed in place */
 
 .image_container img.napoleon{
 
 position:absolute;
 
-bottom:-10px;
+bottom:-15px;
 
 left:50%;
 
-transform:translateX(-50%) !important;
+transform:translateX(-50%);
 
-width:clamp(60px,8vw,160px) !important;
+width:160px;
 
 opacity:0;
 
@@ -295,15 +270,11 @@ animation:napoleonEntry 1.5s ease-out forwards;
 
 }
 
-/* ============================================= */
-
 .hidden_image{
 
-display:none !important;
+display:none;
 
 }
-
-/* ============================================= */
 
 @keyframes imageFadeIn{
 
@@ -339,15 +310,15 @@ transform:translate(-50%,0) rotate(0deg);
 
 #message{
 
-font-size:clamp(0.95rem,2.5vw,1.4rem) !important;
+font-size:1.4rem;
 
-line-height:1.7;
+line-height:1.75;
 
 color:#fff5c2;
 
-margin-bottom:25px;
+margin-bottom:30px;
 
-padding:18px 22px;
+padding:18px 25px;
 
 border-radius:16px;
 
@@ -361,24 +332,18 @@ opacity:0;
 
 animation:textFadeIn 1.1s ease-out forwards;
 
-max-width:850px !important;
-
-width:100%;
-
 }
-
-/* ============================================= */
 
 @keyframes textFadeIn{
 
 from{
 opacity:0;
-transform:translateY(30px);
+transform:translateY(30px) rotateX(10deg);
 }
 
 to{
 opacity:1;
-transform:translateY(0);
+transform:translateY(0) rotateX(0deg);
 }
 
 }
@@ -391,11 +356,11 @@ button{
 
 font-family:'Georgia',serif;
 
-font-size:clamp(0.9rem,2vw,1.2rem);
+font-size:1.2rem;
 
-padding:12px 24px;
+padding:14px 32px;
 
-margin:10px;
+margin:12px;
 
 border:2px solid #ffd700;
 
@@ -409,16 +374,14 @@ cursor:pointer;
 
 text-transform:uppercase;
 
-transition:all 0.35s ease;
+transition:
+all 0.4s ease,
+box-shadow 0.4s ease,
+transform 0.4s ease;
 
 box-shadow:0 6px 20px rgba(0,0,0,0.6);
 
-max-width:350px;
-width:100% !important;
-
 }
-
-/* hover */
 
 button:hover{
 
@@ -426,11 +389,19 @@ background:linear-gradient(145deg,#ffd700,#ffdd00);
 
 color:#0b0b12;
 
-transform:translateY(-4px) scale(1.05);
+transform:translateY(-4px) scale(1.08) rotateX(2deg);
 
 box-shadow:
 0 8px 25px rgba(255,215,0,0.8),
 0 0 20px rgba(255,69,0,0.5);
+
+}
+
+button:active{
+
+transform:translateY(0) scale(0.97) rotateX(0deg);
+
+box-shadow:0 6px 15px rgba(255,215,0,0.5);
 
 }
 
@@ -446,11 +417,33 @@ display:flex;
 
 justify-content:center;
 
-gap:12px;
+gap:18px;
 
 flex-wrap:wrap;
 
-width:100% !important;
+}
+
+#battle_controls button{
+
+background:linear-gradient(to right,#a00,#400);
+
+border-color:#ffd700;
+
+color:#ffd700;
+
+text-shadow:1px 1px 3px black;
+
+box-shadow:
+0 0 22px #ff0000,
+0 0 30px #ffd700 inset;
+
+}
+
+#battle_controls button:hover{
+
+background:linear-gradient(to right,#ffd700,#ff5500);
+
+color:#0b0b12;
 
 }
 
@@ -462,41 +455,109 @@ width:100% !important;
 
 position:fixed;
 
-top:15px;
-right:15px;
+top:20px;
+right:20px;
 
 z-index:999;
 
-padding:10px 20px;
+background:linear-gradient(to bottom,#0b0b12,#1a1a2e);
 
-font-size:0.9rem;
+border:2px solid #ffd700;
+
+border-radius:12px;
+
+padding:12px 25px;
+
+color:#ffd700;
+
+box-shadow:
+0 0 18px #ffd700,
+0 0 28px #ffcc00 inset;
+
+transition:
+all 0.3s ease,
+box-shadow 0.5s ease,
+transform 0.3s ease;
+
+}
+
+#restart_button:hover{
+
+background:linear-gradient(to bottom,#ffd700,#ffcc00);
+
+color:#0b0b12;
+
+box-shadow:
+0 0 28px #ffd700,
+0 0 40px #ffcc00 inset;
+
+transform:scale(1.08) rotateX(2deg);
+
+}
+
+#restart_button:active{
+
+transform:scale(0.95) rotateX(0deg);
 
 }
 
 /* ============================================= */
-/* SMALL PHONE FIXES */
+/* RESPONSIVE STYLING */
 /* ============================================= */
 
-@media(max-width:600px){
+@media(max-width:1000px){
 
-.image_container{
+h1#main_heading{font-size:2.8rem;}
 
-flex-direction:column;
-align-items:center;
+#message{font-size:1.2rem;}
 
-}
-
-#images,
-#second_image{
-
-max-width:95% !important;
-
+.image_container img.napoleon{
+width:120px;
+bottom:-12px;
 }
 
 button{
+font-size:1rem;
+padding:10px 22px;
+min-width:180px;
+}
 
-max-width:100% !important;
+}
 
+@media(max-width:700px){
+
+h1#main_heading{font-size:2.2rem;}
+
+#message{font-size:1.05rem;}
+
+.image_container img.napoleon{
+width:90px;
+bottom:-10px;
+}
+
+button{
+font-size:0.95rem;
+padding:8px 18px;
+min-width:160px;
+}
+
+}
+
+@media(max-width:480px){
+
+h1#main_heading{font-size:1.8rem;}
+
+#message{font-size:0.95rem;}
+
+.image_container img.napoleon{
+width:70px;
+bottom:-8px;
+}
+
+button{
+font-size:0.9rem;
+padding:6px 14px;
+min-width:140px;
 }
 
 }
