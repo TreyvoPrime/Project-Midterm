@@ -386,21 +386,26 @@ function loadScene(sceneName){
         if(!scene){
             throw new Error("Scene not found: " + sceneName)
         }
-    // apply format title function to scene titiles
+    // apply format title function to scene titles
         heading.innerText = formatTitle(scene.title)
         message.innerText = scene.text
         image.src = scene.image
     //change image size based on if there is a second image
-       if(scene.secondImage){
+           if(scene.secondImage){
+                second_image.src = scene.secondImage
+                second_image.style.display = "inline-block"
+            
+                image.style.height = "250px"
+                image.style.width = "auto"
+                second_image.style.height = "250px"
+                second_image.style.width = "auto"
+            } else {
+                second_image.style.display = "none"
+            
+                image.style.height = "350px"
+                image.style.width = "575px"
+            }
 
-            second_image.src = scene.secondImage
-            second_image.style.display = "block"
-        
-        } else {
-        
-            second_image.style.display = "none"
-        
-        }
 
         if(scene.decisions && scene.decisions[0]){
             button1.innerText = scene.decisions[0].text
