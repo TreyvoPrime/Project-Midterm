@@ -37,7 +37,7 @@ const scenes = {
     church: {
         title: "Church!",
         image: "./images/church.png",
-        text: "The napoleonic codes have been passesd and you're at a courthouse viewing a courtcase! The judge rules in favor of conviction for the defendent. The defendent is sentenced to death. What do you do?",
+        text: "The Napoleonic Code has been passed; however, angry Frenchmen are after you. You are at the church they knew you would come here. You must try to run and escape!",
         decisions: [{text: "Try to escape the country", next: "assasination"}]
     },
     pardon_convicted: {
@@ -215,7 +215,7 @@ const scenes = {
         title: "Invasion of Russia",
         image:"./images/russian_invasion.jpg",
         text: "Your empire stands at the top of the world. Countries have been conquered, factions destroyed. All rally behind you. Is your army ready to commence an invasion so vast the world has never seen before? The bear of the continent shall be slaughtered. ",
-        decisions:  [{text: "Take military action against Russia⚔️", next: "battle_bordeno_victory"}]
+        decisions:  [{text: "Invade Russia⚔️", next: "battle_bordeno_victory"}]
         
     },
     russian_invasion_scorched: {
@@ -223,7 +223,7 @@ const scenes = {
         image:"./images/russian_invasion.jpg",
         text: "Your empire stands at the top of the world. Countries have been conquered, factions destroyed. All rally behind you. Is your army ready to commence an invasion so vast the world has never seen before? The bear of the continent shall be slaughtered. ",
 
-        decisions:  [{text: "Take military action against Russia⚔️", next: "battle_bordeno"}]
+        decisions:  [{text: "Invade Russia⚔️", next: "battle_bordeno"}]
         
     },
     battle_bordeno: {
@@ -469,7 +469,8 @@ function loadScene(sceneName){
         if (sceneName === "battle_waterloo"){
             button1.style.display = "inline-block"
             button1.innerText = "There's nothing we can do😔"
-
+            const nothing_we_can_do = new Audio("./Audio/nothing_we_can_do.mp3")
+            nothing_we_can_do.play()
             button1.onclick = () => {
                 window.location.href = "./Endings/realEnding.html"
             }
@@ -490,7 +491,7 @@ function loadScene(sceneName){
 
         if (sceneName === "burning_moscow") {
             button1.style.display = "inline-block"
-            button1.innerText = "Accept defeat😔"
+            button1.innerText = "Burn it to the ground🔥"
 
             button1.onclick = () => {
                 window.location.href = "./Endings/burning_m.html"
@@ -513,7 +514,6 @@ function loadScene(sceneName){
         if (sceneName === "battle_waterloo_incorrect_command"){
             button1.style.display = "inline-block"
             button1.innerText = "There's nothing we can do😔"
-
             button1.onclick = () => {
                 window.location.href = "./Endings/realEnding.html"
             }
