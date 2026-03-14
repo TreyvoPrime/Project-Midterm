@@ -13,4 +13,5 @@ there are 8 total endings. The following listed:
 --------------------------------------------
 At the battle of Waterloo you should issue the commands correctly in a corresponding order. Press the button for the command to be activated. 
 HINT: Fire button is the last button pressed
+ https://treyvoprime.github.io/Project-Midterm/ - Live Site 
 --------------------------------------------
